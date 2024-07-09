@@ -5,6 +5,8 @@
 #include "buttonDebounce.h"
 #include "setButtonVariants.h"
 #define LED 13
+#define LED_GND A0
+
 
 Blinker blinker;
 
@@ -32,11 +34,12 @@ void setButton(int pin, ButtonDebounce state, char c);
 void updateBlinker();
 void checkInputGuard(); 
 void releaseButtons();
+void startupBlink();
 
 void setup() {
   Serial.begin(115200);
   pinMode(LED, OUTPUT);
-  // pinMode(LED_GND, OUTPUT); 
+  pinMode(LED_GND, OUTPUT); 
 
   pinMode(buttonLeftPin, INPUT_PULLUP);
   pinMode(buttonRightPin, INPUT_PULLUP);
@@ -50,6 +53,8 @@ void setup() {
   Keyboard.begin();
 
   blinker.setPeriod(1000, 100);
+
+  startupBlink();
 }
 
 void loop() {
@@ -114,4 +119,13 @@ void updateBlinker() {
     blinker.setPeriod(1000, 0);
   }
   blinker.update();
+}
+
+void startupBlink() {
+  for (int i = 0; i < 10; i++) {
+    digitalWrite(LED, HIGH);
+    delay(100);
+    digitalWrite(LED, LOW);
+    delay(100);
+  }
 }
