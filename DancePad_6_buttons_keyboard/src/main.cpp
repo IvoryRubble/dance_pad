@@ -103,7 +103,6 @@ void setButtons() {
 
 void setButton(int pin, ButtonDebounce state, char c) {
   setButtonRegular(pin, state, c);
-  //setButtonTapReverce(pin, state, c);
 }
 
 void updateBlinker() {

@@ -11,7 +11,7 @@ void setButtonRegular(int pin, ButtonDebounce state, char c) {
   }
 }
 
-void setButtonReverce(int pin, ButtonDebounce state, char c) {
+void setButtonReverse(int pin, ButtonDebounce state, char c) {
   if (state.isBtnReleased) {
     Keyboard.press(c);
   } else if (state.isBtnPressed) {
@@ -25,7 +25,7 @@ void setButtonTap(int pin, ButtonDebounce state, char c) {
   }
 }
 
-void setButtonTapReverce(int pin, ButtonDebounce state, char c) {
+void setButtonTapReverse(int pin, ButtonDebounce state, char c) {
   if (state.isBtnReleased) {
     Keyboard.write(c);
   }
