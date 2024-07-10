@@ -1,31 +1,42 @@
+// pinout:
+// 4 --   start
+// 5 --   select
+// 6 --   right
+// 7 --   up
+// 8 --   down
+// 9 --   left
+// A1 --  led
+// A0 -   led gnd
+// A3 -   switch
+
 #include <Arduino.h>
 #include <Joystick.h>
 #include "serialHelpers.h"
 #include "blinker.h"
 #include "buttonDebounce.h"
-#define LED 13
+#define LED A1
 #define LED_GND A0
 
 
 Blinker blinker;
 
-const int buttonDownPin = A0;
-const int buttonUpPin = A1;
-const int buttonRightPin = A2;
-const int buttonLeftPin = A3;
-const int buttonStartPin = A4;
-const int buttonSelectPin = A5;
+const int buttonStartPin = 4;
+const int buttonSelectPin = 5;
+const int buttonRightPin = 6;
+const int buttonUpPin = 7;
+const int buttonDownPin = 8;
+const int buttonLeftPin = 9;
 
-const int inputGuardPin = 7;
+const int inputGuardPin = 10;
 bool isInputEnabled = true;
 bool isButtonsReleased = false;
 
-ButtonDebounce buttonLeftState;
-ButtonDebounce buttonRightState;
-ButtonDebounce buttonDownState;
-ButtonDebounce buttonUpState;
 ButtonDebounce buttonStartState;
 ButtonDebounce buttonSelectState;
+ButtonDebounce buttonRightState;
+ButtonDebounce buttonUpState;
+ButtonDebounce buttonDownState;
+ButtonDebounce buttonLeftState;
 
 void updateStates();
 void setButtons();
@@ -99,12 +110,12 @@ void updateStates() {
 
 void setButtons() {
   if (!isInputEnabled) return;
-  setButton(0, buttonLeftState);
-  setButton(1, buttonRightState);
-  setButton(2, buttonDownState);
-  setButton(3, buttonUpState);
-  setButton(4, buttonStartState);
-  setButton(5, buttonSelectState);
+  setButton(0, buttonStartState);
+  setButton(1, buttonSelectState);
+  setButton(2, buttonUpState);
+  setButton(3, buttonDownState);
+  setButton(4, buttonLeftState);
+  setButton(5, buttonRightState);
 }
 
 void setButton(int index, ButtonDebounce state) {
