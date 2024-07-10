@@ -13,11 +13,12 @@
 // three blinks on startup: keyboard mode
 
 #include <Arduino.h>
-#include <Keyboard.h>
 #include <Joystick.h>
-#include "serialHelpers.h"
+#include <Keyboard.h>
+
 #include "blinker.h"
 #include "buttonDebounce.h"
+#include "serialHelpers.h"
 #define LED A1
 #define LED_GND A0
 
@@ -48,21 +49,21 @@ void updateStates();
 void setButtons();
 void setButton(int, ButtonDebounce, char);
 void updateBlinker();
-void checkInputGuard(); 
+void checkInputGuard();
 void releaseButtons();
 void startupBlink();
 void switchBlink();
 
 // Set up joystick with 6 buttons, and disable hat switch & all axes
-Joystick_ Joystick( JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_GAMEPAD,
-                    6, 0, false, false, false, false, false,
-                    false, false, false, false, false, false );
+Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_GAMEPAD, 6, 0,
+                   false, false, false, false, false, false, false, false,
+                   false, false, false);
 
 void setup() {
   Serial.begin(115200);
-  
+
   pinMode(LED, OUTPUT);
-  pinMode(LED_GND, OUTPUT); 
+  pinMode(LED_GND, OUTPUT);
 
   pinMode(buttonLeftPin, INPUT_PULLUP);
   pinMode(buttonRightPin, INPUT_PULLUP);
@@ -77,7 +78,7 @@ void setup() {
 
   startupBlink();
   delay(500);
-  
+
   switchState = digitalRead(switchPin);
   switchBlink();
   delay(1000);
@@ -98,7 +99,7 @@ void loop() {
 }
 
 void checkInputGuard() {
-  isInputEnabled = true;// !digitalRead(inputGuardPin);
+  isInputEnabled = true;  // !digitalRead(inputGuardPin);
   if (isInputEnabled) {
     isButtonsReleased = false;
   } else {
@@ -152,13 +153,9 @@ void setButton(int index, ButtonDebounce state, char c) {
 }
 
 void updateBlinker() {
-  if (
-    buttonLeftState.btnState || 
-    buttonRightState.btnState || 
-    buttonDownState.btnState || 
-    buttonUpState.btnState || 
-    buttonStartState.btnState || 
-    buttonSelectState.btnState) {
+  if (buttonLeftState.btnState || buttonRightState.btnState ||
+      buttonDownState.btnState || buttonUpState.btnState ||
+      buttonStartState.btnState || buttonSelectState.btnState) {
     blinker.setPeriod(50, 50);
   } else {
     blinker.setPeriod(1000, 0);
