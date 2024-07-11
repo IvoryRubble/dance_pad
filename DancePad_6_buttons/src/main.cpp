@@ -12,6 +12,15 @@
 // two blinks on startup: gamepad mode
 // three blinks on startup: keyboard mode
 
+// foam dance pad from AliExpress
+// detected as gamepad with buttons 10 and hat:
+// 10 --  start
+// 9 --   select
+// 4 --   right
+// 3 --   up
+// 2 --   down
+// 1 --   left
+
 #include <Arduino.h>
 #include <Joystick.h>
 #include <Keyboard.h>
@@ -55,7 +64,7 @@ void startupBlink();
 void switchBlink();
 
 // Set up joystick with 6 buttons, and disable hat switch & all axes
-Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_GAMEPAD, 6, 0,
+Joystick_ Joystick(JOYSTICK_DEFAULT_REPORT_ID, JOYSTICK_TYPE_GAMEPAD, 10, 0,
                    false, false, false, false, false, false, false, false,
                    false, false, false);
 
@@ -128,14 +137,20 @@ void updateStates() {
   buttonSelectState.updateState(digitalRead(buttonSelectPin));
 }
 
+// 10 --  start
+// 9 --   select
+// 4 --   right
+// 3 --   up
+// 2 --   down
+// 1 --   left
 void setButtons() {
   if (!isInputEnabled) return;
-  setButton(0, buttonStartState, KEY_RETURN);
-  setButton(1, buttonSelectState, KEY_ESC);
+  setButton(9, buttonStartState, KEY_RETURN);
+  setButton(8, buttonSelectState, KEY_ESC);
   setButton(2, buttonUpState, KEY_UP_ARROW);
-  setButton(3, buttonDownState, KEY_DOWN_ARROW);
-  setButton(4, buttonLeftState, KEY_LEFT_ARROW);
-  setButton(5, buttonRightState, KEY_RIGHT_ARROW);
+  setButton(1, buttonDownState, KEY_DOWN_ARROW);
+  setButton(0, buttonLeftState, KEY_LEFT_ARROW);
+  setButton(3, buttonRightState, KEY_RIGHT_ARROW);
 }
 
 void setButton(int index, ButtonDebounce state, char c) {
