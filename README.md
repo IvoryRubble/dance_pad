@@ -3,7 +3,12 @@
 
 ![](photos/20240708_002856.jpg)  
 
-Dance pad with six buttnos:  
+It is made from old furniture.  
+Source of inspiration: https://habr.com/ru/articles/235323/   
+
+Electronics is based on Arduino micro.
+
+Dance pad has six buttnos:  
 - four direction arrow buttons
 - start button
 - select button
@@ -21,7 +26,7 @@ All buttons are mapped to gamepad buttons
 Gamepad layout is same to common foam dance mats from AliExpress      
 
 Suitable for DanceDanceRevolution, ITG, Stepmania and similar games  
-I use it with Project OutFox https://projectoutfox.com/    
+I use it with Project OutFox https://projectoutfox.com/       
 
 ![](photos/20240713_140223.jpg)  
 
