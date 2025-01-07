@@ -1,6 +1,10 @@
 
 # Dance pad
 
+Video demo:  
+https://youtu.be/yFC5BvXxaLI  
+[![Video demo](https://img.youtube.com/vi/yFC5BvXxaLI/0.jpg)](https://www.youtube.com/watch?v=yFC5BvXxaLI)  
+
 ![](photos/20240708_002856.jpg)  
 
 It is made from old furniture.  
