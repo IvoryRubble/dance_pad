@@ -10,7 +10,7 @@ https://youtu.be/yFC5BvXxaLI
 It is made from old furniture.  
 Source of inspiration: https://habr.com/ru/articles/235323/   
 
-Electronics is based on Arduino micro.
+Electronics is based on Arduino pro micro.
 
 Dance pad has six buttnos:  
 - four direction arrow buttons
