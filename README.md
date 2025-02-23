@@ -3,13 +3,15 @@
 
 Video demo:  
 https://youtu.be/yFC5BvXxaLI  
-[![Video demo](https://img.youtube.com/vi/yFC5BvXxaLI/0.jpg)](https://www.youtube.com/watch?v=yFC5BvXxaLI)  
+https://youtu.be/ec2l6R5yWj0  
+https://vkvideo.ru/video740376867_456239052  
+https://vkvideo.ru/video740376867_456239053  
 
-![](photos/20240708_002856.jpg)  
+Article on habr.com: https://habr.com/ru/articles/883000/  
+
+![](photos/20250130_235411.jpg)  
 
 It is made from old furniture.  
-Source of inspiration: https://habr.com/ru/articles/235323/   
-
 Electronics is based on Arduino pro micro.
 
 Dance pad has six buttnos:  
@@ -29,7 +31,7 @@ Emulates gamepad
 All buttons are mapped to gamepad buttons  
 Gamepad layout is same to common foam dance mats from AliExpress      
 
-Suitable for DanceDanceRevolution, ITG, Stepmania and similar games  
+Suitable for DanceDanceRevolution, ITG, Stepmania and similar games.    
 I use it with Project OutFox https://projectoutfox.com/       
 
 ![](photos/20240713_140223.jpg)  
